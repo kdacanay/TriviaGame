@@ -1,6 +1,15 @@
 .container {
     text-align: center;
+    background-color:#2a5aa6; 
+    padding: 100px;
 }
 .jumbotron {
     text-align: center;
+    background-image: url("../images/phillyskyline.jpg");
+    background-size: cover;
+    padding: 40%;
+
+}
+body {
+    background-image: url("../images/phillysportsbackground.jpg");
 }
