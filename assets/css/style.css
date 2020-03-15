@@ -1,15 +1,53 @@
 .container {
     text-align: center;
-    background-color:#2a5aa6; 
-    padding: 100px;
+    background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
+    height: 100%;
+    padding: 5%;
 }
-.jumbotron {
+#jumbotron-header {
     text-align: center;
-    background-image: url("../images/phillyskyline.jpg");
-    background-size: cover;
-    padding: 40%;
+    background-image: url("../images/sportsfigures.jpg");
+    padding: 10%;
+    font-family: 'Bungee Inline', cursive;
+    font-size: 20px;
+}
 
+#main-title {
+    font-size: 90px;
+    background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
+    color: white;
+}
+#main-title-text {
+    background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
+    color: white;
 }
 body {
     background-image: url("../images/phillysportsbackground.jpg");
+    background-repeat: repeat;
+}
+
+.thisChoice:hover {
+    background-color: #E81828;
+    color: white;
+}
+.factImage {
+    max-width: 250px;
+    max-height: 350px;
+}
+
+#reset-button:hover {
+    background-color: #004C54;
+}
+#start-button:hover {
+    background-color: #004C54;
+}
+#reset-button {
+    background-color: #F74902;
+}
+#start-button {
+    background-color: #F74902;
+}
+
+#main-game-section {
+    color: white;
 }

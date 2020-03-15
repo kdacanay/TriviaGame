@@ -7,21 +7,28 @@
     
     <!-- Bootstrap CSS -->
     <!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Philadelphia Sports Trivia</title>
   </head>
   <body>
   
-    <div class="jumbotron">
+    <div class="jumbotron" id="jumbotron-header">
         <h1 class="display-4" id="main-title">Philly! Sports! Trivia!</h1>
-        <p>It's a tough town, and this is a tough quiz</p>
+        <p id="main-title-text">It's a tough town, and this is a tough quiz</p>
     </div>  
     <div class="container">
         <div class="row">
-          <div class="col"></div>
-          <div class="col">
+            <div class="col"></div>
+            <div class="col">
               <a class="btn btn-primary btn-lg" href="#" role="button" id="start-button">Start!</a>
+          </div>
+        <div class="col"></div>
+        </div>
+        <div class="row">  
+          <div class="col"></div>
+          <div class="col" id="main-game-section">
               <!--Questions-->
               <div id="timer-counter"></div>
               <div id="current-question"></div>
