@@ -22,29 +22,58 @@ $(document).ready(function () {
             choicesArray: ["A. 43035", "B. 69176", "C. 19500", "D. 53035"],
             finalAnswer: 0,
             image: "assets/images/citizensbankpark.jpg",
-            funFact: "On average, there are 22 seats in each row at Citizens Bank Park.  They also have dollar-hotdog-night every once in awhile.  I love hot dogs.",
+            funFact: "On average, there are 22 seats in each row at Citizens Bank Park.  They also have dollar-dog-night every once in awhile.  I love hot dogs. I could eat like, three.",
         },
         {
             question: "Who holds the record for most touchdowns scored for the Eagles?",
             choicesArray: ["A. Tommy Mcdonald", "B. Lesean McCoy", "C. Brian Westbrook", "D. Wilbert Montgomery"],
             finalAnswer: 2,
             image: "assets/images/brianwestbrook.jpg",
-            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totaling only 150 yards. I once liked the 49ers. Once. I was 2 years old and didn't know right from wrong.",
+            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totaling only 150 yards. I once liked the 49ers. I was 2 years old and didn't know right from wrong.",
+        },
+        {
+            question: "During the 2000-2001 season, the 76ers won 4 awards. Among them: League MVP and Defensive Player of the Year. Name the other two.",
+            choicesArray: ["A. Coach of the Year, Executive of the Year", "B. Sixth Man of the Year, Rookie of the Year", "C. Executive of the Year, Sixth Man of the Year", "D. Coach of the Year, Sixth Man of the Year"],
+            finalAnswer: 3,
+            image: "assets/images/iverson.jpg",
+            funFact: "Despite being the first team to ever have won all 4 major awards in the NBA, they still lost in the NBA finals to Kobe and Shaq's Lakers.  I thought they were gonna do it, man.",
         },
         {
             question: "Who is the Philadelphia Flyers All-Time Leading Goal Scorer?",
             choicesArray: ["A. Bobby Clarke", "B. Eric Lindros", "C. Bill Barber", "D. Tim Kerr"],
             finalAnswer: 2,
             image: "assets/images/billbarber.jpg",
-            funFact: "With 420 career goals and a total of 883 points, Barber trails Bobby Clarke for All-Time Leading Point Scorer, who has 1210 career points. They also had wonderful mullets when they played.",
+            funFact: "With 420 career goals and a total of 883 points, Barber trails Bobby Clarke for All-Time Leading Point Scorer, who has 1210 career points. They also had crazy mullets when they played.",
         },
         {
             question: "What year did the Eagles join the NFL?",
             choicesArray: ["A. 1945", "B. 1933", "C. 1960", "D. 1930"],
             finalAnswer: 1,
-            image: "assets/images/1933eagles.jpg",
-            funFact: "The Eagles were an expansion team in 1933, and took the slot of the Frankford Yellow Jackets, a team that folded in 1931. I don't care what you say, those baby-blue/yellow jerseys were awful.", 
+            image: "assets/images/1933jerseys.jpg",
+            funFact: "The Eagles were an expansion team in 1933, and took the slot of the Frankford Yellow Jackets, a team that folded in 1931. I don't care what you say, those jerseys were awful.", 
         },
+        {
+            question: "Who holds the longest hitting streak in Philadelphia Phillies history with 36 games in a row with a hit?",
+            choicesArray: ["A. Richie Ashburn", "B. Mike Schmidt", "C. Jimmy Rollins", "D. Chase Utley"],
+            finalAnswer: 2,
+            image: "assets/images/jimmyrollins.jpg",
+            funFact: "This isn't a fact but more like an opinion. But J-Roll was my favorite player during those great Phillies teams, solely because of (pictured) that hilarious Dick's Sporting Goods commercial he did.",
+        },
+        {
+            question: "Who is the Eagles QB who holds the NFL record for most consecutive games with 1+ TD passes and 1 or less INTs?",
+            choicesArray: ["A. Ron Jaworski", "B. Carson Wentz", "C. Donovan Mcnabb", "D. Randall Cunningham"],
+            finalAnswer: 1,
+            image: "assets/images/wentz.jpg",
+            funFact: "Again, not a fact, but I just really really really wanted to get a Carson Wentz question and picture in here.  Because I love him. And I'm not ashamed of saying it. I LOVE CARSON!",
+        },
+        {
+            question: "Who did Claude Giroux replace as Flyers' Team Captain in 2013?",
+            choicesArray: ["A. Chris Pronger", "B. Mike Richards", "C. Mark Recchi", "D. Jeff Carter"],
+            finalAnswer: 0,
+            image: "assets/images/pronger.jpg",
+            funFact: "Fun Pronger Fact: he was awesome. Also a Pronger fact, his older brother Sean played in the NHL, too. And uh...he also wore #20? He was left-handed? I'm just reading Wikipedia here, guys."
+        },
+        
 
     ];
 
@@ -57,6 +86,7 @@ $(document).ready(function () {
     var answered;
     var userSelect;
     var questionCount = questionsArray.length;
+    
 
     var messages = {
         correct: "Nice!",
@@ -64,6 +94,7 @@ $(document).ready(function () {
         outOfTime: "Time's up!",
         finished: "Here's how you did:"
     }
+
     $("#main-game-section").hide();
 
     $("#start-button").on("click", function () {
@@ -85,7 +116,6 @@ $(document).ready(function () {
         $("#incorrect-total").empty();
         $("#image").hide();
         $("#fun-fact").hide();
-        
         currentQuestion = 0;
         correctAnswer = 0;
         incorrectAnswer = 0;
@@ -188,10 +218,10 @@ $(document).ready(function () {
         }
 
         if ((correctAnswer + incorrectAnswer) == (questionCount)) {
-            setTimeout(scoreBoard, 9000);
+            setTimeout(scoreBoard, 10000);
         } else {
             currentQuestion++;
-            setTimeout(newQuestion, 9000);
+            setTimeout(newQuestion, 10000);
         }
     }
 
