@@ -12,32 +12,40 @@ $(document).ready(function () {
 
         {
             question: "Who was the 2008 World Series MVP?",
-            choicesArray: ["Ryan Howard", "Brad Lidge", "Evan Longoria", "Cole Hamels"],
+            choicesArray: ["A. Ryan Howard", "B. Brad Lidge", "C. Evan Longoria", "D. Cole Hamels"],
             finalAnswer: 3,
             image: "assets/images/colehamels.jpg",
-            funFact: "Fun Fact! Cole has been married to reality TV star Heidi Strobel from Survivor since 2006."
+            funFact: "Cole Hamels is married to reality TV star Heidi Strobel from Survivor since 2006.  I met them once at an Audi dealership.  Nice people.",
         },
         {
             question: "How many seats are in Citizens Bank Park?",
-            choicesArray: ["43035", "69176", "19500", "53035"],
+            choicesArray: ["A. 43035", "B. 69176", "C. 19500", "D. 53035"],
             finalAnswer: 0,
             image: "assets/images/citizensbankpark.jpg",
-            funFact: "On average, there are 22 seats in each row at Citizens Bank Park.",
+            funFact: "On average, there are 22 seats in each row at Citizens Bank Park.  They also have dollar-hotdog-night every once in awhile.  I love hot dogs.",
         },
         {
             question: "Who holds the record for most touchdowns scored for the Eagles?",
-            choicesArray: ["Tommy Mcdonald", "Lesean McCoy", "Brian Westbrook", "Wilbert Montgomery"],
+            choicesArray: ["A. Tommy Mcdonald", "B. Lesean McCoy", "C. Brian Westbrook", "D. Wilbert Montgomery"],
             finalAnswer: 2,
             image: "assets/images/brianwestbrook.jpg",
-            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totalling only 150 yards. ",
+            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totaling only 150 yards. I once liked the 49ers. Once. I was 2 years old and didn't know right from wrong.",
         },
         {
             question: "Who is the Philadelphia Flyers All-Time Leading Goal Scorer?",
-            choicesArray: ["Bobby Clarke", "Eric Lindros", "Bill Barber", "Tim Kerr"],
+            choicesArray: ["A. Bobby Clarke", "B. Eric Lindros", "C. Bill Barber", "D. Tim Kerr"],
             finalAnswer: 2,
             image: "assets/images/billbarber.jpg",
-            funFact: "With 420 career goals and a total of 883 points, Barber trails Bobby Clarke for All-Time Leading Point Scorer, who has 1210 career points. "
+            funFact: "With 420 career goals and a total of 883 points, Barber trails Bobby Clarke for All-Time Leading Point Scorer, who has 1210 career points. They also had wonderful mullets when they played.",
         },
+        {
+            question: "What year did the Eagles join the NFL?",
+            choicesArray: ["A. 1945", "B. 1933", "C. 1960", "D. 1930"],
+            finalAnswer: 1,
+            image: "assets/images/1933eagles.jpg",
+            funFact: "The Eagles were an expansion team in 1933, and took the slot of the Frankford Yellow Jackets, a team that folded in 1931. I don't care what you say, those baby-blue/yellow jerseys were awful.", 
+        },
+
     ];
 
     //list of variables to use
@@ -51,8 +59,8 @@ $(document).ready(function () {
     var questionCount = questionsArray.length;
 
     var messages = {
-        correct: "Correct!",
-        incorrect: "Incorrect!",
+        correct: "Nice!",
+        incorrect: "Wrong!",
         outOfTime: "Time's up!",
         finished: "Here's how you did:"
     }
@@ -89,6 +97,7 @@ $(document).ready(function () {
         $("#correct-answer").empty();
         $("#image").hide();
         $("#fun-fact").hide();
+        $("#timer-counter").show();
         answered = true;
 
         //sets up new questions
@@ -100,9 +109,7 @@ $(document).ready(function () {
         for (var i = 0; i < 4; i++) {
             var choices = $("<div>");
             choices.text(questionsArray[currentQuestion].choicesArray[i]);
-            choices.attr({
-                "data-index": i
-            });
+            choices.attr({"data-index": i});
             choices.addClass("thisChoice");
             $(".answer-choices").append(choices);
         }
@@ -111,24 +118,24 @@ $(document).ready(function () {
         $(".thisChoice").on("click", function () {
             userSelect = $(this).data("index");
             clearInterval(time);
+            $("#timer-counter").hide();
             answers();
         });
     }
 
     function countdown() {
-        seconds = 20;
-        $("#timer-counter").html("00:00" + seconds);
+        seconds = 15;
+        $("#timer-counter").html(":" + seconds);
         answered = true;
-
         time = setInterval(showCountdown, 1000);
     }
 
     function showCountdown() {
         seconds--;
-        if (seconds < 17) {
-            $("#timer-counter").html("00:00" + seconds);
+        if (seconds < 15) {
+            $("#timer-counter").html(":" + seconds);
         } else {
-            $("#timer-counter").html("00:" + seconds);
+            $("#timer-counter").html(":" + seconds);
         }
         if (seconds < 1) {
             clearInterval(time);
@@ -174,16 +181,17 @@ $(document).ready(function () {
             $("#message").html(messages.incorrect);
             $("#correct-answer").html("The correct answer was: " + rightAnswerText);
         } else {
+            incorrectAnswer++;
             $("#message").html(messages.outOfTime);
             $("#correct-answer").html("The correct answer was: " + rightAnswerText);
             answered = true;
         }
 
         if ((correctAnswer + incorrectAnswer) == (questionCount)) {
-            setTimeout(scoreBoard, 3000);
+            setTimeout(scoreBoard, 9000);
         } else {
             currentQuestion++;
-            setTimeout(newQuestion, 3000);
+            setTimeout(newQuestion, 9000);
         }
     }
 
@@ -195,8 +203,8 @@ $(document).ready(function () {
         $("#image").hide();
         $("#fun-fact").hide();
         $("#last-message").html(messages.finished);
-        $("#correct-total").html("Correct Answers: " + correctAnswer);
-        $("#incorrect-total").html("Incorrect Answers: " + incorrectAnswer);
+        $("#correct-total").html("Right: " + correctAnswer);
+        $("#incorrect-total").html("Wrong: " + incorrectAnswer);
         $("#reset-button").addClass("reset");
         $("#reset-button").show();
         $("#reset-button").html("Play Again?");

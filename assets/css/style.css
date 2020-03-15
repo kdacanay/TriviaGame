@@ -1,53 +1,99 @@
 .container {
     text-align: center;
     background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
-    height: 100%;
-    padding: 5%;
+    padding: 3%;
+    border-color: white;
+    border-style: solid;
 }
+
 #jumbotron-header {
     text-align: center;
     background-image: url("../images/sportsfigures.jpg");
     padding: 10%;
     font-family: 'Bungee Inline', cursive;
     font-size: 20px;
+    border-bottom-color: white;
+    border-style: solid;
 }
 
 #main-title {
     font-size: 90px;
     background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
     color: white;
+    border-color: white;
+    border-style: solid;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 #main-title-text {
     background-image: linear-gradient(to right, #004C54, #F74902, #E81828, #006BB6);
     color: white;
+    border-color: white;
+    border-style: solid;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 body {
     background-image: url("../images/phillysportsbackground.jpg");
     background-repeat: repeat;
+    height: 100%;
 }
 
 .thisChoice:hover {
-    background-color: #E81828;
+    background-color: #006BB6;
     color: white;
 }
+
 .factImage {
     max-width: 250px;
     max-height: 350px;
 }
 
 #reset-button:hover {
-    background-color: #004C54;
+    background-color: #F74902;
 }
+
 #start-button:hover {
-    background-color: #004C54;
+    background-color: #F74902;
+
 }
+
 #reset-button {
-    background-color: #F74902;
+    background-color: #004C54;
+    padding: 5%;
+    font-family: 'Bungee Inline', cursive;
+    padding-left: 25%;
+    padding-right: 25%;
+    border-color: white;
+    border-style: solid;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
 #start-button {
-    background-color: #F74902;
+    background-color: #004C54;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-family: 'Bungee Inline', cursive;
+    border-color: white;
+    border-style: solid;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #main-game-section {
     color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 23px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#message {
+    font-family: 'Bungee Inline', cursive;
+    font-size: 40px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.scoreboard {
+    font-family: 'Bungee Inline', cursive;
+    font-size: 25px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
