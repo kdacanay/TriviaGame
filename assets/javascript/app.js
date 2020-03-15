@@ -29,7 +29,7 @@ $(document).ready(function () {
             choicesArray: ["A. Tommy Mcdonald", "B. Lesean McCoy", "C. Brian Westbrook", "D. Wilbert Montgomery"],
             finalAnswer: 2,
             image: "assets/images/brianwestbrook.jpg",
-            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totaling only 150 yards. I once liked the 49ers. I was 2 years old and didn't know right from wrong.",
+            funFact: "Brian Westbrook spent his final NFL year playing for the 49ers in 2010, totaling only 150 yards. I once liked the 49ers. Now? Not so much.",
         },
         {
             question: "During the 2000-2001 season, the 76ers won 4 awards. Among them: League MVP and Defensive Player of the Year. Name the other two.",
@@ -64,7 +64,7 @@ $(document).ready(function () {
             choicesArray: ["A. Ron Jaworski", "B. Carson Wentz", "C. Donovan Mcnabb", "D. Randall Cunningham"],
             finalAnswer: 1,
             image: "assets/images/wentz.jpg",
-            funFact: "Again, not a fact, but I just really really really wanted to get a Carson Wentz question and picture in here.  Because I love him. And I'm not ashamed of saying it. I LOVE CARSON!",
+            funFact: "Again, not a fact, but I just really really really wanted to get a Carson Wentz question and picture in here.  Because I love him. And I'm not ashamed of saying it. Did you see that throw against the 'Skins?? C'mon that was crazy!",
         },
         {
             question: "Who did Claude Giroux replace as Flyers' Team Captain in 2013?",
@@ -73,6 +73,13 @@ $(document).ready(function () {
             image: "assets/images/pronger.jpg",
             funFact: "Fun Pronger Fact: he was awesome. Also a Pronger fact, his older brother Sean played in the NHL, too. And uh...he also wore #20? He was left-handed? I'm just reading Wikipedia here, guys."
         },
+        {
+            question: "Who was the leading point scorer on the most recent 76ers team that won the NBA finals?",
+            choicesArray: ["A. Julius Erving", "B. Charles Barkley", "C. Maurice Cheeks", "D. Moses Malone"],
+            finalAnswer: 3,
+            image: "assets/images/mosesmalone.jpg",
+            funFact: "Moses was a 12-time All-Star and 8-time All-NBA hall-of-fame player.  His nickname was Chairman of the Boards, which just might be the greatest nickname. EVER."
+        }
         
 
     ];
