@@ -7,7 +7,7 @@
 //message screen goes away, a few seconds pass then next randomly chosen question shows 
 //process repeats until all 10 questions have been answered
 $(document).ready(function () {
-
+    //questions, questions, questions
     var questionsArray = [
 
         {
@@ -40,7 +40,7 @@ $(document).ready(function () {
         },
     ];
 
-
+    //list of variables to use
     var currentQuestion;
     var correctAnswer;
     var incorrectAnswer;
@@ -48,6 +48,7 @@ $(document).ready(function () {
     var time;
     var answered;
     var userSelect;
+    var questionCount = questionsArray.length;
 
     var messages = {
         correct: "Correct!",
@@ -59,6 +60,7 @@ $(document).ready(function () {
 
     $("#start-button").on("click", function () {
         $("#start-button").hide();
+        $("#reset-button").hide();
         newGame();
     });
 
@@ -75,6 +77,7 @@ $(document).ready(function () {
         $("#incorrect-total").empty();
         $("#image").hide();
         $("#fun-fact").hide();
+        
         currentQuestion = 0;
         correctAnswer = 0;
         incorrectAnswer = 0;
@@ -163,10 +166,10 @@ $(document).ready(function () {
 
 
 
-        if ((userSelect === rightAnswerIndex) && (answered === true)) {
+        if ((userSelect == rightAnswerIndex) && (answered == true)) {
             correctAnswer++;
             $("#message").html(messages.correct);
-        } else if ((userSelect != rightAnswerIndex) && (answered === true)) {
+        } else if ((userSelect != rightAnswerIndex) && (answered == true)) {
             incorrectAnswer++;
             $("#message").html(messages.incorrect);
             $("#correct-answer").html("The correct answer was: " + rightAnswerText);
@@ -176,16 +179,16 @@ $(document).ready(function () {
             answered = true;
         }
 
-        if (currentQuestion == (questionsArray.length - 1)) {
-            setTimeout(scoreBoard, 5000);
+        if ((correctAnswer + incorrectAnswer) == (questionCount)) {
+            setTimeout(scoreBoard, 3000);
         } else {
             currentQuestion++;
-            setTimeout(newQuestion, 5000);
+            setTimeout(newQuestion, 3000);
         }
     }
 
-    function scoreBoard() {
-        time.hide();
+    function scoreBoard() {      
+        
         $("#timer-counter").empty();
         $("#message").empty();
         $("#correct-answer").empty();
@@ -194,9 +197,9 @@ $(document).ready(function () {
         $("#last-message").html(messages.finished);
         $("#correct-total").html("Correct Answers: " + correctAnswer);
         $("#incorrect-total").html("Incorrect Answers: " + incorrectAnswer);
-        $("reset-button").addClass("reset");
-        $("reset-button").show();
-        $("reset-button").html("Play Again?");
+        $("#reset-button").addClass("reset");
+        $("#reset-button").show();
+        $("#reset-button").html("Play Again?");
     }
 
     scoreBoard();
