@@ -6,6 +6,9 @@
 //if user selects incorrectly or does not make selection within 20 seconds, user is alerted to incorrect guess, incorrect answer count goes up
 //message screen goes away, a few seconds pass then next randomly chosen question shows 
 //process repeats until all 10 questions have been answered
+//displays final scoreboard after all questions answered
+
+
 $(document).ready(function () {
     //questions, questions, questions
     var questionsArray = [
@@ -50,7 +53,7 @@ $(document).ready(function () {
             choicesArray: ["A. 1945", "B. 1933", "C. 1960", "D. 1930"],
             finalAnswer: 1,
             image: "assets/images/1933jerseys.jpg",
-            funFact: "The Eagles were an expansion team in 1933, and took the slot of the Frankford Yellow Jackets, a team that folded in 1931. I don't care what you say, those jerseys were awful.", 
+            funFact: "The Eagles were an expansion team in 1933, and took the slot of the Frankford Yellow Jackets, a team that folded in 1931. I don't care what you say, those jerseys were awful.",
         },
         {
             question: "Who holds the longest hitting streak in Philadelphia Phillies history with 36 games in a row with a hit?",
@@ -80,8 +83,6 @@ $(document).ready(function () {
             image: "assets/images/mosesmalone.jpg",
             funFact: "Moses was a 12-time All-Star and 8-time All-NBA hall-of-fame player.  His nickname was Chairman of the Boards, which just might be the greatest nickname. EVER."
         }
-        
-
     ];
 
     //list of variables to use
@@ -93,30 +94,32 @@ $(document).ready(function () {
     var answered;
     var userSelect;
     var questionCount = questionsArray.length;
+    // var questionTracker = [];
     
-
+    //messages variable for when question is answered right/wrong/out of time. messages.finished after all questions answered
     var messages = {
         correct: "Nice!",
         incorrect: "Wrong!",
         outOfTime: "Time's up!",
         finished: "Here's how you did:"
     }
-
+    //hides entire game section at game start
     $("#main-game-section").hide();
-
+    //show only start button at log
     $("#start-button").on("click", function () {
         $("#start-button").hide();
         $("#reset-button").hide();
         newGame();
     });
-
+    //reset button to show after all questions answered
     $("#reset-button").on("click", function () {
         $("#reset-button").hide();
         newGame();
     });
 
-
+    //new game function runs after start button clicked or reset button clicked
     function newGame() {
+
         $("#main-game-section").show();
         $("#last-message").empty();
         $("#correct-total").empty();
@@ -128,7 +131,7 @@ $(document).ready(function () {
         incorrectAnswer = 0;
         newQuestion();
     }
-
+    //new game function runs newQuestion function, shows timer
     function newQuestion() {
         $("#message").empty();
         $("#correct-answer").empty();
@@ -137,16 +140,33 @@ $(document).ready(function () {
         $("#timer-counter").show();
         answered = true;
 
-        //sets up new questions
         $("#current-question").html("Question " + (currentQuestion + 1) + " of " + questionsArray.length);
         $(".question").html(questionsArray[currentQuestion].question);
 
-
-
+        // tried to set up where questions get set up randomly, failed miserable.  will try again after turning in assignment 
+        // for (var j = 0; j < questionCount; j++ ) {
+        //     var randomQuestion = questionsArray.splice (
+        //     Math.floor(Math.random() * questionsArray.length), 1)[0];
+        //     (existingQuestions());
+        //       // Add the question to the tracker
+        //     questionTracker.push(randomQuestion);
+        //     }
+            
+        //     // If the current random number already exists in the tracker, return true
+        //     function existingQuestions() {
+        //       for (var j = 0; j < questionTracker.length; j++) {
+        //         if (questionTracker[j] === randomQuestion) {
+        //           return true;
+        //         }
+        //       }
+        //       return false;
+        //     }
         for (var i = 0; i < 4; i++) {
             var choices = $("<div>");
             choices.text(questionsArray[currentQuestion].choicesArray[i]);
-            choices.attr({"data-index": i});
+            choices.attr({
+                "data-index": i
+            });
             choices.addClass("thisChoice");
             $(".answer-choices").append(choices);
         }
@@ -159,7 +179,7 @@ $(document).ready(function () {
             answers();
         });
     }
-
+    //timer countdown
     function countdown() {
         seconds = 15;
         $("#timer-counter").html(":" + seconds);
@@ -199,7 +219,7 @@ $(document).ready(function () {
         newImage.addClass("factImage");
         $("#image").html(newImage);
 
-
+        //this links the funFact to each question and image
         var funFactLink = questionsArray[currentQuestion].funFact;
         var factCaption = $("<div>");
         factCaption.html(`${funFactLink}`);
@@ -232,8 +252,8 @@ $(document).ready(function () {
         }
     }
 
-    function scoreBoard() {      
-        
+    function scoreBoard() {
+
         $("#timer-counter").empty();
         $("#message").empty();
         $("#correct-answer").empty();
