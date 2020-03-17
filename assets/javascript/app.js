@@ -181,7 +181,7 @@ $(document).ready(function () {
     }
     //timer countdown
     function countdown() {
-        seconds = 15;
+        seconds = 20;
         $("#timer-counter").html(":" + seconds);
         answered = true;
         time = setInterval(showCountdown, 1000);
@@ -189,7 +189,7 @@ $(document).ready(function () {
 
     function showCountdown() {
         seconds--;
-        if (seconds < 15) {
+        if (seconds < 20) {
             $("#timer-counter").html(":" + seconds);
         } else {
             $("#timer-counter").html(":" + seconds);
@@ -245,10 +245,10 @@ $(document).ready(function () {
         }
 
         if ((correctAnswer + incorrectAnswer) == (questionCount)) {
-            setTimeout(scoreBoard, 10000);
+            setTimeout(scoreBoard, 12000);
         } else {
             currentQuestion++;
-            setTimeout(newQuestion, 10000);
+            setTimeout(newQuestion, 12000);
         }
     }
 
